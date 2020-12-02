@@ -1,38 +1,64 @@
+
 .App {
+  background: #e9e19d;
+  height: 100vh;
+  padding: 30px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.todo-list {
+  background: #817e7e;
+  border: 3px solid rgb(143, 143, 143);
+  border-radius: 5px;
+  max-width: 500px;
+  padding: 5px;
+  margin: auto;
+  position: relative;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+.todo {
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  background: rgb(218, 162, 162);
+  border-radius: 3px;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
+  display: flex;
+  font-size: 12px;
+  justify-content: space-between;
+  margin-bottom: 6px;
+  padding: 10px 10px;
+}
+
+.input{
+  background: rgb(255, 255, 255);
+  border-radius: 3px;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
+  font-size: 12px;
+  margin-bottom: 6px;
+  padding: 3px 10px;
+  margin: auto;
+  width: fit-content;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.button-submit {
+  margin-top: 5px;
+  padding: 10px 15px;
+  background-color: rgb(11, 85, 145);
   color: white;
+  font-weight: bold;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.button-submit.change-color {
+  background-color: green;
 }
