@@ -2,7 +2,6 @@ import React from 'react';
 import EditForm from '../components/EditForm';
 import Todo from '../components/Todo';
 import TodoForm from '../components/TodoForm';
-import { DragDropContext } from 'react-beautiful-dnd'
 
 class TodoList extends React.Component {
     state = {
@@ -11,6 +10,7 @@ class TodoList extends React.Component {
         isEdit: false,
         editIndex: {},
         idEdit: {},
+        completed: false,
     };
 
     setTodos = (todos) => this.setState({
@@ -54,33 +54,37 @@ class TodoList extends React.Component {
         })
     }
 
+    clearList = (e) => {
+        const confirm = window.confirm("Are you sure want to clear all this item?")
+        if (confirm) {
+            this.setState({
+                todos: []
+            })
+        }
+
+    }
+
     render() {
         return (
             <div className="todo-list" >
-                <DragDropContext>
-                    {this.state.todos.map((todo, index) => (
-                        <div key={index}>
-                            <Todo
-                                onDouble={(data) => {
-                                    this.setState({
-                                        editIndex: data,
-                                        isEdit: !this.state.isEdit,
-                                        idEdit: index,
-                                    })
-                                }}
-                                onSingle={() => {
-                                    this.setState({
-                                        todos: <s></s>
-                                    })
-                                }}
-                                obj={todo}
-                                removeTodo={() => this.removeInput(index)}
-                            />
-                        </div>
 
-                    ))
-                    }
-                </DragDropContext>
+                {this.state.todos.map((todo, index) => (
+                    <div key={index}>
+                        <Todo
+                            onDouble={(data) => {
+                                this.setState({
+                                    editIndex: data,
+                                    isEdit: !this.state.isEdit,
+                                    idEdit: index,
+                                })
+                            }}
+                            obj={todo}
+                            removeTodo={() => this.removeInput(index)}
+                        />
+                    </div>
+
+                ))
+                }
 
                 {this.state.isEdit ? <EditForm
                     onSubmit={this.onSubmit}
@@ -102,8 +106,10 @@ class TodoList extends React.Component {
                             newValue: e.target.value,
                         })
                         }
+                        clearList={this.clearList}
                     />
                 }
+
             </div >
         )
     }

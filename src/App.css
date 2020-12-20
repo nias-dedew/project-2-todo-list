@@ -59,6 +59,19 @@
   -o-border-radius: 10px;
 }
 
+.button-clear {
+  margin-top: 5px;
+  padding: 10px 15px;
+  background-color: rgb(114, 20, 20);
+  color: white;
+  font-weight: bold;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+
 .button-submit.change-color {
   background-color: green;
 }
